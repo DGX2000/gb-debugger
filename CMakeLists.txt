@@ -22,6 +22,8 @@ set(PROJECT_SOURCES
         romdialog.cpp
         romdialog.h
         romdialog.ui
+        rom.cpp
+        rom.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

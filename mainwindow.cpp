@@ -4,6 +4,7 @@
 #include <QFileDialog>
 
 #include "romdialog.h"
+#include "rom.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -20,10 +21,9 @@ MainWindow::~MainWindow()
 void MainWindow::on_actionLoad_ROM_triggered()
 {
     auto filename = QFileDialog::getOpenFileName(this);
+    Gb::Rom rom(filename.toStdString());
 
-    // TODO: add GbCore class
-    // TODO: GbCore::loadRom, if GbRom::isLoaded() => open dialog
-    RomDialog romDialog(this);
+    RomDialog romDialog(rom, this);
     romDialog.exec();
 }
 
